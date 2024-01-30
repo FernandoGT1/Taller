@@ -6,7 +6,7 @@ const Buttons = ({ onViewChange }) => {
     <div className="buttons-container">
       <button className="button" onClick={() => onViewChange('Mecánicos')}>Mecánicos</button>
       <button className="button" onClick={() => onViewChange('Servicios')}>Servicios</button>
-      <button className="button">Piezas</button>
+      <button className="button" onClick={() => onViewChange('Piezas')}>Piezas</button>
     </div>
   );
 }

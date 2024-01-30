@@ -1,10 +1,12 @@
+// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import Login from './components/Login/Login';
 import Header from './components/Header/Header';
 import Buttons from './components/Buttons/Buttons';
 import Table from './components/Table/Table';
-import ServicesTable from './components/ServicesTable/ServicesTable'; // Añade la importación de ServicesTable
+import ServicesTable from './components/ServicesTable/ServicesTable';
+import PartsTable from './components/PartsTable/PartsTable'; // Importa la nueva tabla de piezas
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -26,9 +28,10 @@ function App() {
     <div className="App">
       {!isLoggedIn && <Login onLogin={handleLogin} />}
       {isLoggedIn && <Header onLogout={handleLogout} />}
-      {isLoggedIn && <Buttons onViewChange={handleViewChange} />} {/* Pasa la función de cambio de vista */}
+      {isLoggedIn && <Buttons onViewChange={handleViewChange} />}
       {isLoggedIn && currentView === 'Mecánicos' && <Table />}
-      {isLoggedIn && currentView === 'Servicios' && <ServicesTable />} {/* Cambia a ServicesTable */}
+      {isLoggedIn && currentView === 'Servicios' && <ServicesTable />}
+      {isLoggedIn && currentView === 'Piezas' && <PartsTable />} {/* Agrega la vista de Piezas */}
     </div>
   );
 }
